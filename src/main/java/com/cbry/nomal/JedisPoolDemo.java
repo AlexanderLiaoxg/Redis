@@ -10,7 +10,7 @@ public class JedisPoolDemo {
 	final static int PORT = 6379;
 	final static String PASSWORD = "as1df@#$3%Mk4Io9Ps";
 	
-	final static int MAX_ACTIVE = 10;
+	final static int MAX_ACTIVE = 100;
 	final static int MAX_IDLE = 100;
 	final static int MAX_WAIT = 3000; 
 	final static int TIMEOUT = 10000;   	//超时时间
@@ -29,7 +29,7 @@ public class JedisPoolDemo {
 		return jedisPool;
 	}
 	
-	public synchronized Jedis getJedis() {
+	public static synchronized Jedis getJedis() {
 		initJedisPool();
 		return jedisPool.getResource();
 	}
